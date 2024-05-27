@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "dst-logger": {
+      "projectType": "library",
+      "root": "projects/dst-logger",
+      "sourceRoot": "projects/dst-logger/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/dst-logger/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dst-logger/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/dst-logger/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dst-logger/src/test.ts",
+            "tsConfig": "projects/dst-logger/tsconfig.spec.json",
+            "karmaConfig": "projects/dst-logger/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "dst-library"
